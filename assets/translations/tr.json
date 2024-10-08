@@ -1,0 +1,10 @@
+{
+  "home": {
+    "title": "Ana Sayfa"
+  },
+  "general": {
+    "button": {
+      "save": "Kaydet {}"
+    }
+  }
+}
