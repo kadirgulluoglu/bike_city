@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:bike_city/product/init/config/app_environment.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_logger/easy_logger.dart';
 import 'package:flutter/cupertino.dart';
@@ -22,7 +23,7 @@ final class ApplicationInitialize {
     await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     await DeviceUtility.instance.initPackageInfo();
     EasyLocalization.logger.enableLevels = [LevelMessages.error];
-
+    AppEnvironment.general();
     FlutterError.onError = (details) {
       // TODO(kadirrgulluoglu): Add Firebase Crashlytics
       Logger().e(details.exceptionAsString());
