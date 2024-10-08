@@ -1,0 +1,10 @@
+{
+  "home": {
+    "title": "Home Page"
+  },
+  "general": {
+    "button": {
+      "save": "Save {}"
+    }
+  }
+}

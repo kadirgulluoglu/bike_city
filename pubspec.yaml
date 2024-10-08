@@ -17,11 +17,16 @@ dependencies:
 
   # utility
   kartal: ^4.1.0
+  easy_logger: ^0.0.2
+  logger: ^2.4.0
 
   # core dependicies
   equatable: ^2.0.5
   json_annotation: ^4.9.0
   envied: ^0.5.4+1
+
+  # localization
+  easy_localization: ^3.0.7
 
 
   # icons
@@ -51,6 +56,10 @@ flutter_gen:
     lottie: true
 
 flutter:
+
+  assets:
+    - assets/translations/
+
 
 
   uses-material-design: true

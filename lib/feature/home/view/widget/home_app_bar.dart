@@ -6,7 +6,7 @@ class _HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Text("Bike City"),
+      title: const Text('Bike City'),
     );
   }
 
