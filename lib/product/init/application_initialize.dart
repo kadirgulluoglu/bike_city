@@ -10,6 +10,7 @@ import 'package:logger/logger.dart';
 @immutable
 final class ApplicationInitialize {
   Future<void> init() async {
+    WidgetsFlutterBinding.ensureInitialized();
     await runZonedGuarded<Future<void>>(_initialize, (error, stackTrace) {
       Logger().e(error.toString());
       Logger().e(stackTrace.toString());
@@ -17,7 +18,6 @@ final class ApplicationInitialize {
   }
 
   Future<void> _initialize() async {
-    WidgetsFlutterBinding.ensureInitialized();
     await EasyLocalization.ensureInitialized();
     await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     await DeviceUtility.instance.initPackageInfo();
