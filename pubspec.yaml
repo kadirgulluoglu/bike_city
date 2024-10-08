@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # network manager
+  # network
   vexana: ^5.0.1
 
   # utility
@@ -40,7 +40,7 @@ dev_dependencies:
   very_good_analysis: ^6.0.0
   flutter_gen_runner: ^5.8.0
   flutter_launcher_icons: ^0.14.1
-
+  envied_generator: ^0.5.4+1
 
 
 flutter_launcher_icons:
@@ -59,6 +59,7 @@ flutter:
 
   assets:
     - assets/translations/
+    - assets/env/
 
 
 
