@@ -3,6 +3,7 @@ import 'package:bike_city/feature/home/view/mixin/home_view_mixin.dart';
 import 'package:bike_city/product/init/config/app_environment.dart';
 import 'package:bike_city/product/init/language/locale_keys.g.dart';
 import 'package:bike_city/product/navigation/app_router.dart';
+import 'package:common/common.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
@@ -25,6 +26,9 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const CustomNetworkImage(
+            url: 'https://via.placeholder.com/150',
+          ),
           ElevatedButton(
             onPressed: () {
               context.router.push(HomeDetailRoute(id: '1'));
