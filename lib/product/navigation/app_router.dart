@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 
 part 'app_router.gr.dart';
 
-@AutoRouterConfig(replaceInRouteName: AppRouter._replaceRoute)
+@AutoRouterConfig(replaceInRouteName: AppRouter._replaceRouteName)
 final class AppRouter extends _$AppRouter {
-  static const _replaceRoute = 'View,Route';
+  static const _replaceRouteName = 'View,Route';
 
   @override
   List<AutoRoute> get routes => [

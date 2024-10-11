@@ -25,6 +25,7 @@ final class MyApp extends StatelessWidget {
       routerConfig: _appRouter.config(),
       theme: CustomLightTheme().themeData,
       darkTheme: CustomDarkTheme().themeData,
+      themeMode: ThemeMode.dark,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
