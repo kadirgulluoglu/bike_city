@@ -95,7 +95,7 @@ final class CustomColorScheme {
     surfaceDim: Color(0xff141313),
     surfaceBright: Color(0xff3a3939),
     surfaceContainerLowest: Color(0xff0e0e0e),
-    surfaceContainerLow: Color(0xff1c1b1b),
+    surfaceContainerLow: Color(0xffbad147),
     surfaceContainer: Color(0xff201f1f),
     surfaceContainerHigh: Color(0xff2b2a2a),
     surfaceContainerHighest: Color(0xff353434),

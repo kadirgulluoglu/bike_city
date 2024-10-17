@@ -1,5 +1,8 @@
 import 'package:auto_route/annotations.dart';
+import 'package:bike_city/product/init/language/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:widgets/widgets.dart';
 
 @RoutePage()
 final class HomeDetailView extends StatelessWidget {
@@ -13,10 +16,25 @@ final class HomeDetailView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Home Detail'),
       ),
-      body: const Column(
+      body: Column(
         children: [
-          Text('Home Detail'),
+          ElevatedButton(
+            onPressed: () {
+              ConfirmationDialog.show(
+                context: context,
+                title: 'Deneme Title',
+                message: 'Deneme Message',
+              );
+            },
+            child: const Text(LocaleKeys.home_title).tr(),
+          ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+        child: const Icon(Icons.arrow_back),
       ),
     );
   }
