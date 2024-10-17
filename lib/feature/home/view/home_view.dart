@@ -7,6 +7,7 @@ import 'package:common/common.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gen/gen.dart';
+import 'package:kartal/kartal.dart';
 
 part 'widget/home_app_bar.dart';
 
@@ -26,8 +27,8 @@ class _HomeViewState extends State<HomeView> with HomeViewMixin {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const CustomNetworkImage(
-            url: 'https://via.placeholder.com/150',
+          CustomNetworkImage(
+            url: ''.ext.randomImage,
           ),
           ElevatedButton(
             onPressed: () {

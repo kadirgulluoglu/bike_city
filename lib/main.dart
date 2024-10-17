@@ -4,6 +4,7 @@ import 'package:bike_city/product/init/theme/index.dart';
 import 'package:bike_city/product/navigation/app_router.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:widgets/widgets.dart';
 
 Future<void> main() async {
   await ApplicationInitialize().init();
@@ -22,6 +23,7 @@ final class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      builder: CustomResponsive.build,
       routerConfig: _appRouter.config(),
       theme: CustomLightTheme().themeData,
       darkTheme: CustomDarkTheme().themeData,
