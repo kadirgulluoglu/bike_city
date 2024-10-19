@@ -1,4 +1,5 @@
 enum ServicePaths {
+  dummy('dummy'),
   user('users');
 
   const ServicePaths(this.path);

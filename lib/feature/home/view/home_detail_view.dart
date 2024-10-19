@@ -2,14 +2,18 @@ import 'package:auto_route/annotations.dart';
 import 'package:bike_city/product/init/language/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:widgets/widgets.dart';
 
 @RoutePage()
-final class HomeDetailView extends StatelessWidget {
+final class HomeDetailView extends StatefulWidget {
   const HomeDetailView({required this.id, super.key});
 
   final String id;
 
+  @override
+  State<HomeDetailView> createState() => _HomeDetailViewState();
+}
+
+class _HomeDetailViewState extends State<HomeDetailView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,13 +23,7 @@ final class HomeDetailView extends StatelessWidget {
       body: Column(
         children: [
           ElevatedButton(
-            onPressed: () {
-              ConfirmationDialog.show(
-                context: context,
-                title: 'Deneme Title',
-                message: 'Deneme Message',
-              );
-            },
+            onPressed: () {},
             child: const Text(LocaleKeys.home_title).tr(),
           ),
         ],
