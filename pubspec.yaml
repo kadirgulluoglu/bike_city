@@ -22,6 +22,7 @@ dependencies:
 
   # core dependicies
   equatable: ^2.0.5
+  get_it: ^8.0.0
 
   # localization
   easy_localization: ^3.0.7
@@ -29,6 +30,8 @@ dependencies:
   # navigation
   auto_route: ^7.8.4
 
+  # state
+  flutter_bloc: ^8.1.6
 
   # icons
   cupertino_icons: ^1.0.8

@@ -13,7 +13,7 @@ final class CustomLightTheme implements CustomTheme {
   @override
   FloatingActionButtonThemeData get floatingActionButtonThemeData =>
       FloatingActionButtonThemeData(
-        backgroundColor: CustomColorScheme.lightColorScheme.primary,
+        backgroundColor: CustomColorScheme.lightColorScheme.primaryFixed,
         shape: const CircleBorder(),
       );
 }

@@ -13,7 +13,8 @@ final class CustomDarkTheme implements CustomTheme {
   @override
   FloatingActionButtonThemeData get floatingActionButtonThemeData =>
       FloatingActionButtonThemeData(
-        backgroundColor: CustomColorScheme.darkColorScheme.primary,
+        backgroundColor: CustomColorScheme.darkColorScheme.primaryFixed,
+        foregroundColor: CustomColorScheme.darkColorScheme.onPrimary,
         shape: const CircleBorder(),
       );
 }

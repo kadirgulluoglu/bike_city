@@ -1,13 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:bike_city/feature/home/view/mixin/home_view_mixin.dart';
-import 'package:bike_city/product/init/config/app_environment.dart';
-import 'package:bike_city/product/init/language/locale_keys.g.dart';
-import 'package:bike_city/product/navigation/app_router.dart';
-import 'package:common/common.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:bike_city/feature/home/view_model/home_view_model.dart';
+import 'package:bike_city/feature/home/view_model/state/home_state.dart';
+import 'package:bike_city/product/state/base/base_state.dart';
 import 'package:flutter/material.dart';
-import 'package:gen/gen.dart';
-import 'package:kartal/kartal.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'widget/home_app_bar.dart';
 
@@ -19,29 +16,55 @@ final class HomeView extends StatefulWidget {
   State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> with HomeViewMixin {
+class _HomeViewState extends BaseState<HomeView> with HomeViewMixin {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const _HomeAppBar(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CustomNetworkImage(
-            url: ''.ext.randomImage,
-          ),
-          ElevatedButton(
-            onPressed: () {
-              context.router.push(HomeDetailRoute(id: '1'));
-            },
-            child: const Text(LocaleKeys.general_button_save).tr(
-              args: ['Deneme'],
-            ),
-          ),
-          Assets.image.imgBike.image(),
-          Text(AppEnvironmentItem.baseUrl.value),
-        ],
+    return BlocProvider(
+      create: (context) => viewModel,
+      child: Scaffold(
+        appBar: const _HomeAppBar(),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(child: _ItemList()),
+          ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () async {
+            initViewModel.changeThemeMode(
+              initViewModel.state.themeMode == ThemeMode.dark
+                  ? ThemeMode.light
+                  : ThemeMode.dark,
+            );
+            if (viewModel.state.users?.isEmpty ?? true) {
+              await viewModel.getUsers();
+            }
+          },
+          child: const Icon(Icons.refresh),
+        ),
       ),
+    );
+  }
+}
+
+final class _ItemList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<HomeViewModel, HomeState>(
+      builder: (context, state) {
+        return state.loading
+            ? const Center(child: CircularProgressIndicator.adaptive())
+            : ListView.builder(
+                itemCount: state.users?.length,
+                itemBuilder: (context, index) {
+                  final users = state.users;
+                  return ListTile(
+                    title: Text(users?[index]?.name ?? ''),
+                    subtitle: Text(users?[index]?.email ?? ''),
+                  );
+                },
+              );
+      },
     );
   }
 }
