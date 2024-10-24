@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bike_city/product/init/config/app_environment.dart';
 import 'package:bike_city/product/state/container/base_container.dart';
+import 'package:bike_city/product/state/container/state_items.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_logger/easy_logger.dart';
 import 'package:flutter/cupertino.dart';
@@ -13,10 +14,13 @@ import 'package:logger/logger.dart';
 final class ApplicationInitialize {
   Future<void> init() async {
     WidgetsFlutterBinding.ensureInitialized();
-    await runZonedGuarded<Future<void>>(_initialize, (error, stackTrace) {
-      Logger().e(error.toString());
-      Logger().e(stackTrace.toString());
-    });
+    await runZonedGuarded<Future<void>>(
+      _initialize,
+      (error, stackTrace) {
+        Logger().e(error.toString());
+        Logger().e(stackTrace.toString());
+      },
+    );
   }
 
   Future<void> _initialize() async {
@@ -30,5 +34,7 @@ final class ApplicationInitialize {
       // TODO(kadirrgulluoglu): Add Firebase Crashlytics
       Logger().e(details.exceptionAsString());
     };
+
+    await StateItems.cache.init();
   }
 }

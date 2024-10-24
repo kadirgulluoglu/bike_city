@@ -46,6 +46,9 @@ dependencies:
   common:
     path: module/common
 
+  core:
+    path: module/core
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
