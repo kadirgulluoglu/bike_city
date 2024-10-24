@@ -36,9 +36,8 @@ class _HomeViewState extends BaseState<HomeView> with HomeViewMixin {
                   ? ThemeMode.light
                   : ThemeMode.dark,
             );
-            if (viewModel.state.users?.isEmpty ?? true) {
-              await viewModel.getUsers();
-            }
+
+            await viewModel.getUsers();
           },
           child: const Icon(Icons.refresh),
         ),
